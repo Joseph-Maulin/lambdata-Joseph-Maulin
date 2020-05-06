@@ -1,0 +1,6 @@
+README.md
+setup.py
+lambdata_Joseph_Maulin.egg-info/PKG-INFO
+lambdata_Joseph_Maulin.egg-info/SOURCES.txt
+lambdata_Joseph_Maulin.egg-info/dependency_links.txt
+lambdata_Joseph_Maulin.egg-info/top_level.txt
