@@ -78,7 +78,3 @@ def state_abreviation(state):
 
     except:
         return "Wrong state format"
-
-
-
-print(state_abreviation("in"))
