@@ -20,3 +20,25 @@ from helper_functions.split_date import split_date
 df = pd.DataFrame({"date":["2020-01-01"]})
 print(split_date(df, "date"))
 ```
+
+
+
+```py
+from helper_functions.chi_squared_report import chi_squared_report
+
+def chi_squared_report(df, col1, col2):
+    """
+        vars:
+            df - dataframe
+            col1 - col1
+            col2 - col2
+
+        description:
+            print contingency table and chi-test result
+    """
+
+    df = pd.DataFrame({"a":["bat", "cat", "bat"], "b":[1, 4, 4]})
+
+    chi_squared_report(df, "a", "b")
+
+```
