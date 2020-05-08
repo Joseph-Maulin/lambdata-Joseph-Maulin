@@ -3,15 +3,27 @@ import numpy as np
 import pandas as pd
 
 
-
 def add_state_names(df, state_column, direction=None):
     """
-        df(pd.DataFrame) : df to modify returns copy with states_translated column
-        state_column(String) : column name of the state column to df_translate
-        direction : direction to translate.
+    Function
+    ________
+        Translates a pandas dataframe state column into corresponding full_name or abbreviation
+
+    Params
+    __________
+        args:
+            df(pd.DataFrame) : df to modify returns copy with states_translated column
+            state_column(String) : column name of the state column to df_translate
+
+        kwargs:
+            direction : direction to translate.
                     "abreviate" -> California to CA
                     "full" -> CA to California
-                    None -> random sample to guess direction
+                    None -> random samples to guess direction
+
+    Return
+    ______
+        Returns a copy of passed df with df['states_translated'] column
     """
 
     # copy DataFrame
@@ -74,36 +86,45 @@ def add_state_names(df, state_column, direction=None):
 
 
     # excute translation per direction
-    if direction == "abreviate":
+    if direction == "abbreviate":
         df_translated[state_column] = df_translated[state_column].str.title()
         df_translated['states_translated'] = df_translated[state_column].map(states_dict)
 
     elif direction == "full":
-        states_dict =  {v: k for k, v in states_dict.items()}
-        df_translated[state_column].str.upper()
+        states_dict =  {v : k for k, v in states_dict.items()}
+        df_translated[state_column] = df_translated[state_column].str.upper()
 
         df_translated['states_translated'] = df_translated[state_column].map(states_dict)
 
     # sample df to guess direction if None
     else:
-        sample = df_translated.sample(10)
+        if len(df_translated['state'])<10:
+            sample_len = len(df_translated['state'])
+        else:
+            sample_len = 10
+        sample = df_translated['state'].sample(sample_len).values
 
+        avg_len = 0
+        for x in sample:
+            avg_len += len(x)
+        avg_len/=sample_len
+
+        if avg_len>=4:
+            df_translated[state_column] = df_translated[state_column].str.title()
+            df_translated['states_translated'] = df_translated[state_column].map(states_dict)
+
+        else:
+            states_dict =  {v: k for k, v in states_dict.items()}
+            df_translated[state_column] = df_translated[state_column].str.upper()
+
+            df_translated['states_translated'] = df_translated[state_column].map(states_dict)
 
 
     return df_translated
 
 
-
-
-
 if __name__ == "__main__":
 
-    my_df = pd.DataFrame({"state":["AL", "Texas", "IN"], "city":["Montgomery", "Dallas", "Indianappolis"]})
-    #
-    # print(add_state_names(my_df, "state"))
+    my_df = pd.DataFrame({"state": ["Al", "Tx", "IN"], "city": ["Montgomery", "Dallas", "Indianappolis"]})
 
-    avg_len = 0
-    for x in my_df['state'].values:
-        avg_len += len(x)
-
-    avg_len /= len(my_df['state'])
+    print(add_state_names(my_df, "state"))
