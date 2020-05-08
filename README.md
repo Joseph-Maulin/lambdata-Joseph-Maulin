@@ -8,9 +8,12 @@ pip install -i https://test.pypi.org/simple/ lambdata-Joseph-Maulin
 
 ## Usage
 ```py
-from helper_functions.state_abreviation import state_abreviation
+from helper_functions.state_abreviation import add_state_names
 
-print(state_abreviation("IN"))
+my_df = pd.DataFrame({"state":["AL", "Tx", "IN"], "city":["Montgomery", "Dallas", "Indianappolis"]})
+add_state_names(df, state_column)
+
+print(add_state_names(my_df, "state"))
 
 ```
 
