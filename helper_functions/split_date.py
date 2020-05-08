@@ -2,12 +2,21 @@
 import pandas as pd
 
 def split_date(df, date_column):
-    """
-    split_date(df, date_column)
-        -df - pandas DataFrame
-        -date_column - date column to split
-    Split df['date'] column into Year, Month, Day columns
-    """
+        """
+        Function
+        ________
+            Expands pandas dataframe date column into 'Year', 'Month', 'Day'
+
+        Params
+        __________
+            args:
+                df(pd.DataFrame) : df to modify
+                date_column(String) : column name of the date column to expand
+
+        Return
+        ______
+            Returns a copy of passed df with df['Year'], df['Month'], and df['Day'] columns
+        """
     try:
         split_df = df.copy()
 

@@ -8,9 +8,22 @@ pip install -i https://test.pypi.org/simple/ lambdata-Joseph-Maulin
 
 ## Usage
 ```py
-from helper_functions.state_abreviation import state_abreviation
+from helper_functions.state_abreviation import add_state_names
 
-print(state_abreviation("IN"))
+def add_state_names(df, state_column, direction=None):
+    """
+        df(pd.DataFrame) : df to modify returns copy with states_translated column
+        state_column(String) : column name of the state column to df_translate
+        direction : direction to translate.
+                    "abreviate" -> California to CA
+                    "full" -> CA to California
+                    None -> random sample to guess direction
+    """
+
+my_df = pd.DataFrame({"state":["AL", "Tx", "IN"], "city":["Montgomery", "Dallas", "Indianappolis"]})
+add_state_names(df, state_column)
+
+print(add_state_names(my_df, "state"))
 
 ```
 
