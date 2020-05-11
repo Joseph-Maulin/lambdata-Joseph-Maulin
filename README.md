@@ -8,6 +8,22 @@ pip install -i https://test.pypi.org/simple/ lambdata-Joseph-Maulin
 
 ## Usage
 ```py
+  from helper_functions.helper import Helper
+
+  df = pd.DataFrame({"state":["AL", "Tx", "IN"], "city":["Montgomery", "Dallas", "Indianappolis"], "date":[2020-01-02, 2020-04-03, 2020-05-10]})
+
+  helper = Helper(df)
+
+  helper.add_state("state", direction=None)
+  helper.split_date("date")
+
+  df = helper.get_df()
+```
+
+
+# These can be called outside Helper(). Inside method helper argument df == self.
+
+```py
 from helper_functions.state_abreviation import add_state_names
 
 def add_state_names(df, state_column, direction=None):

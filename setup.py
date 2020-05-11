@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="lambdata-Joseph-Maulin", # the name that you will install via pip
-    version="1.2",
+    version="1.3",
     author="Joseph Maulin",
     author_email="joseph_l_maulin@gmail.com",
     description="Helper functions for data science",
