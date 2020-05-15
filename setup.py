@@ -17,5 +17,5 @@ setup(
     #license="MIT",
     url="https://github.com/Joseph-Maulin/lambdata-Joseph-Maulin",
     #keywords="",
-    packages=find_packages() # ["helper_functions"]
+    packages=["helper_functions"]
 )

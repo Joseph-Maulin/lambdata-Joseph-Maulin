@@ -4,7 +4,7 @@
 
 class Helper:
 
-    def __ini__(self, df):
+    def __init__(self, df):
         self.df = df
 
     def __re__(self):
@@ -126,7 +126,6 @@ class Helper:
                 df_translated['states_translated'] = df_translated[state_column].map(states_dict)
 
         self.df = df_translated
-        return self.df
 
 
     def split_date(self, date_column):

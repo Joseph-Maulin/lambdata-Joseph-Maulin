@@ -1,5 +1,5 @@
 # lambdata-Joseph-Maulin
-3.1 package
+3.2 package
 
 
 ## Installation

@@ -1,8 +1,9 @@
 README.md
 setup.py
 helper_functions/__init__.py
-helper_functions/confusion_matrix.py
+helper_functions/chi_squared_report.py
 helper_functions/find_na.py
+helper_functions/helper.py
 helper_functions/split_date.py
 helper_functions/state_abreviation.py
 lambdata_Joseph_Maulin.egg-info/PKG-INFO
